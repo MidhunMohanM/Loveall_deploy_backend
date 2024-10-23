@@ -4,9 +4,9 @@ import dotenv from 'dotenv';
 import http from 'http';
 import authRoute from './routes/authRoute.js';
 import userRoute from './routes/userRoute.js';
+import paymentRoute from './routes/paymentRoute.js';  // Import the payment route
 import rateLimit from 'express-rate-limit';
 import errorHandler from './middleware/errorHandler.js';
-
 
 // Dotenv configuration
 dotenv.config();
@@ -33,6 +33,7 @@ app.get('/test', (req, res) => {
 });
 app.use('/api/auth', authRoute);
 app.use('/api/user', userRoute);
+app.use('/api/payment', paymentRoute);  // Add the payment route here
 
 // Error handler Middleware
 app.use(errorHandler);
