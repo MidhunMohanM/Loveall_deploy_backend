@@ -12,6 +12,7 @@ const sequelize = new Sequelize(
     }
 )
 
+
 try {
     await sequelize.authenticate();
     console.log('Database connected successfully');

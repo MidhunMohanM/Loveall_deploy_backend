@@ -15,7 +15,7 @@ const verifyJWT = (token) => {
         return decoded;
     } catch (error) {
         console.log("error in jwt")
-        throw new Error("Unauthorized! Kindly login");
+        throw new Error(error);
     }
 }
 

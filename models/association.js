@@ -1,6 +1,7 @@
 import Admin from "./admin.model.js";
 import AdminActivityLog from "./adminActivityLog.model.js";
 import BusinessActivityLog from "./businessActivityLog.model.js";
+import Business from "./business.model.js";
 import Cards from "./card.model.js";
 import CardPurchaseTransaction from "./cardPurchaseTransaction.model.js";
 import Feedback from "./feedback.model.js";
@@ -19,6 +20,12 @@ User.hasMany(CardPurchaseTransaction, { foreignKey: 'user_id', onDelete: 'CASCAD
 User.hasMany(OfferTransaction, { foreignKey: 'user_id', onDelete: 'CASCADE' });
 User.hasMany(Cards, { foreignKey: 'user_id', onDelete: 'CASCADE' });
 User.hasMany(Feedback, { foreignKey: 'user_id', onDelete: 'CASCADE' });
+
+// Business associations
+Business.hasMany(CardPurchaseTransaction, { foreignKey: 'business_id', onDelete: 'CASCADE' });
+Business.hasMany(OfferTransaction, { foreignKey: 'business_id', onDelete: 'CASCADE' });
+Business.hasMany(BusinessActivityLog, { foreignKey: 'business_id', onDelete: 'CASCADE' });
+Business.hasMany(Feedback, { foreignKey: 'business_id', onDelete: 'CASCADE' });
 
 // Stores associations
 Store.hasMany(StoresSubaccount, { foreignKey: 'store_id', onDelete: 'CASCADE' });
@@ -54,6 +61,7 @@ Feedback.belongsTo(Store, { foreignKey: 'store_id', onDelete: 'CASCADE' });
 
 // BusinessActivityLog Association
 BusinessActivityLog.belongsTo(Store, { foreignKey: 'store_id', onDelete: 'CASCADE' });
+BusinessActivityLog.belongsTo(Business, { foreignKey: 'business_id', onDelete: 'CASCADE' });
 
 // Admin associations
 Admin.hasMany(AdminActivityLog, { foreignKey: 'admin_id', onDelete: 'CASCADE' });
@@ -76,6 +84,7 @@ export {
     AdminActivityLog,
     BusinessActivityLog,
     Category,
+    Business,
     Donation,
     Volunteer
 };

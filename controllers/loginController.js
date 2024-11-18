@@ -45,7 +45,7 @@ const login = async (req, res, next) => {
             email: user.email
         }
         const token = createJWT(payload);
-        return res.status(201).json({success: true, message: "You have logged in successfully", token});
+        return res.status(200).json({success: true, message: "You have logged in successfully", token});
     }
     catch (error) {
         next(error);
