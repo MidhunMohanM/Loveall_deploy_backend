@@ -2,16 +2,16 @@ import { DataTypes } from "sequelize";
 import sequelize from "../config/dbConfig.js";
 
 const Business = sequelize.define('business', {
-    'business_id': {
+    business_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    'business_name': {
+    business_name: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    'business_email': {
+    business_email: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
@@ -19,19 +19,19 @@ const Business = sequelize.define('business', {
             isEmail: true
         }
     },
-    'password_hash': {
+    password_hash: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    'business_type': {
+    business_type: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    'entity_type': {
+    entity_type: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    'contact_number': {
+    contact_number: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
@@ -39,29 +39,41 @@ const Business = sequelize.define('business', {
             len: [10, 10]
         }
     },
-    'business_address': {
+    business_address: {
         type: DataTypes.STRING
     },
-    'gstin': {
+    city: {
+        type: DataTypes.STRING
+    },
+    state: {
+        type: DataTypes.STRING
+    },
+    zip_code: {
         type: DataTypes.STRING,
         validate: {
-            len: [15, 15] // GSTIN is typically 15 characters long
+            len: [6, 6]
         }
     },
-    'tan': {
+    gstin: {
         type: DataTypes.STRING,
         validate: {
-            len: [10, 10] // TAN is typically 10 characters long
+            len: [15, 15]
         }
     },
-    'business_purpose': {
+    tan: {
+        type: DataTypes.STRING,
+        validate: {
+            len: [10, 10]
+        }
+    },
+    business_purpose: {
         type: DataTypes.TEXT
     },
-    'owner_name': {
+    owner_name: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    'owner_contact_number': {
+    owner_contact_number: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
@@ -69,37 +81,37 @@ const Business = sequelize.define('business', {
             len: [10, 10]
         }
     },
-    'created_at': {
+    created_at: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW
     },
-    'updated_at': {
+    updated_at: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW
     },
-    'verified': {
+    verified: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
     },
-    'manual_verified': {
+    manual_verified: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
     },
-    'temp_pass': {
+    temp_pass: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
     },
-    'otp': {
+    otp: {
         type: DataTypes.INTEGER,
-        defaultValue: false
+        defaultValue: null
     },
-    'otp_expiration_time': {
+    otp_expiration_time: {
         type: DataTypes.DATE,
-        defaultValue: false
-    },
+        defaultValue: null
+    }
 }, {
-    tableName: 'business', // Specify the table name
-    timestamps: false // Disable automatic timestamps
+    tableName: 'business',
+    timestamps: false
 });
 
 export default Business;

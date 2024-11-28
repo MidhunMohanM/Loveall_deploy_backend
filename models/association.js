@@ -14,6 +14,7 @@ import Category from "./category.model.js";
 import StoresSubaccount from "./storesSubaccount.model.js";
 import Donation from "./donation.model.js";
 import Volunteer from "./volunteer.model.js";
+import Transaction from "./transaction.model.js";
 // Users Association
 // Users associations
 User.hasMany(CardPurchaseTransaction, { foreignKey: 'user_id', onDelete: 'CASCADE' });
@@ -26,6 +27,7 @@ Business.hasMany(CardPurchaseTransaction, { foreignKey: 'business_id', onDelete:
 Business.hasMany(OfferTransaction, { foreignKey: 'business_id', onDelete: 'CASCADE' });
 Business.hasMany(BusinessActivityLog, { foreignKey: 'business_id', onDelete: 'CASCADE' });
 Business.hasMany(Feedback, { foreignKey: 'business_id', onDelete: 'CASCADE' });
+
 
 // Stores associations
 Store.hasMany(StoresSubaccount, { foreignKey: 'store_id', onDelete: 'CASCADE' });
@@ -86,5 +88,6 @@ export {
     Category,
     Business,
     Donation,
-    Volunteer
+    Volunteer,
+    Transaction
 };

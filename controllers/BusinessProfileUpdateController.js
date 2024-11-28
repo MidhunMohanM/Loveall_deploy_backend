@@ -1,4 +1,3 @@
-// businessProfileUpdateController.js
 import { verifyJWT } from '../services/jwt.js';
 import Business from '../models/business.model.js';
 
@@ -55,3 +54,4 @@ const businessProfileUpdateController = async (req, res) => {
 };
 
 export default businessProfileUpdateController;
+

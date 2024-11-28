@@ -76,3 +76,4 @@ const businessProfileController = async (req, res) => {
 };
 
 export default businessProfileController;
+

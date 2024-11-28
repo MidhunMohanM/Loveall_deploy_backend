@@ -27,9 +27,11 @@
     "express": "^4.21.0",
     "express-rate-limit": "^7.4.0",
     "haversine": "^1.1.1",
+    "json2csv": "^6.0.0-alpha.2",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.11.3",
     "node-mailer": "^0.1.1",
+    "pdfkit": "^0.15.1",
     "razorpay": "^2.9.4",
     "sequelize": "^6.37.3",
     "validator": "^13.12.0"
